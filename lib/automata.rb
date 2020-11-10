@@ -1,5 +1,6 @@
 require "automata/version"
 require "automata/game"
+require "automata/neighbor"
 
 module Automata
   class << self

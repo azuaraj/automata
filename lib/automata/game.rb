@@ -14,7 +14,6 @@ module Automata
         def start
           #  @current_arrangement_state = [[0,0,0],[1,0,1],[0,1,1],[0,1,0]]
           @current_arrangement_state = @seed
-          neighbors =  [[1,0], [1,-1], [0,-1], [-1,-1], [-1,0], [-1,1], [0,1], [1,1]]
 
           rows = @seed.size
           cols = @seed[0].size
@@ -22,7 +21,7 @@ module Automata
           (0...rows).each do |row|
               (0...cols).each do |col|
                 live_neighbors = 0
-                neighbors.each do |neighbor| 
+                Automata::Neighbor.all.each do |neighbor| 
                     r = (row + neighbor[0])
                     c = (col + neighbor[1])
 
@@ -41,21 +40,25 @@ module Automata
               end
           end
 
-          (0...rows).each do |row|
-            (0...cols).each do |col|
-                if @current_arrangement_state[row][col] > 0
-                    @current_arrangement_state[row][col] = 1
-                else
-                    @current_arrangement_state[row][col] = 0
-                end
-            end
-          end
-
+          transform_current_state_to_final_representation(rows, cols)
         end
 
         def stop
         end 
 
+        private 
+        
+        def transform_current_state_to_final_representation(rows, cols)
+            (0...rows).each do |row|
+                (0...cols).each do |col|
+                    if @current_arrangement_state[row][col] > 0
+                        @current_arrangement_state[row][col] = 1
+                    else
+                        @current_arrangement_state[row][col] = 0
+                    end
+                end
+              end
+        end
 
     end
 end
