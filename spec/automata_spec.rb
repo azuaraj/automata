@@ -7,11 +7,21 @@ RSpec.describe Automata do
     expect(false).to eq(false)
   end
 
-  it "returns correct simulation array" do
+  it "returns correct simulation array (1 generation)" do
     input = [[0,1,0],[0,0,1],[1,1,1],[0,0,0]] #Initial seed state
     output = [[0,0,0],[1,0,1],[0,1,1],[0,1,0]] #expected output after 1 generation
-    game = Automata.game(input, 1)
-    game.start
-    expect(game.current_arrangement_state).to eq(output)
+    algo = Automata::Algorithm.new(input, 1)
+    algo.run
+    expect(algo.current_arrangement_state).to eq(output)
   end
+
+  it "returns correct simulation array (6 generations)" do
+    input = [[0,1,0],[0,0,1],[1,1,1],[0,0,0]] 
+    output = [[0,0,0],[0,0,0],[0,1,1],[0,1,1]] 
+    algo = Automata::Algorithm.new(input, 6)
+    algo.run
+    expect(algo.current_arrangement_state).to eq(output)
+  end
+
+
 end
