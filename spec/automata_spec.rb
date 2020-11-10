@@ -12,6 +12,6 @@ RSpec.describe Automata do
     output = [[0,0,0],[1,0,1],[0,1,1],[0,1,0]] #expected output after 1 generation
     game = Automata.game(input, 1)
     game.start
-    expect(game.current_arrangement_state).to eq(input)
+    expect(game.current_arrangement_state).to eq(output)
   end
 end
