@@ -1,11 +1,11 @@
+# frozen_string_literal: true
+
 module Automata
-    class Neighbor
+  class Neighbor
+    ALL_POSSIBLE_NEIGHBORS = [[1, 0], [1, -1], [0, -1], [-1, -1], [-1, 0], [-1, 1], [0, 1], [1, 1]].freeze
 
-        ALL_POSSIBLE_NEIGHBORS = [[1,0], [1,-1], [0,-1], [-1,-1], [-1,0], [-1,1], [0,1], [1,1]]
-
-        def self.all
-            ALL_POSSIBLE_NEIGHBORS
-        end
-
+    def self.all
+      ALL_POSSIBLE_NEIGHBORS
     end
+  end
 end

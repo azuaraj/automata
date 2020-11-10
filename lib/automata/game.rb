@@ -1,21 +1,17 @@
+# frozen_string_literal: true
+
 module Automata
-    class Game
+  class Game
+    attr_accessor :state
 
-        attr_accessor :state
-
-        def initialize
-            @state = 'Inactive'
-        end
-
-        def start(seed, generations)
-            self.state = 'Running'
-            Automata::Algorithm.new(seed, generations).run
-            self.state = 'Finished'
-        end
-
-        def stop
-            @state = 'Stopped'
-        end
-
+    def initialize
+      @state = 'Inactive'
     end
+
+    def start(seed, generations)
+      @state = 'Running'
+      Automata::Algorithm.new(seed, generations).run
+      @state = 'Finished'
+    end
+  end
 end

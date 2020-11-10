@@ -1,12 +1,12 @@
+# frozen_string_literal: true
+
 require 'terminal-table'
 
 module Automata
-    class ArrayPrettifier
-
-        def self.transform(ary)
-            table = Terminal::Table.new :rows => ary
-            puts table
-        end
-
+  class ArrayPrettifier
+    def self.transform(ary)
+      table = Terminal::Table.new rows: ary
+      puts table
     end
+  end
 end
