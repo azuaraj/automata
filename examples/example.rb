@@ -7,5 +7,5 @@ seed = [[0, 1, 0], [0, 0, 1], [1, 1, 1], [0, 0, 0]]
 
 #2. Run the simulation, pass the seed array and declare how many generations will be simulated
 
-Automata.game(input, 6)
+Automata.game(seed, 6)
 
