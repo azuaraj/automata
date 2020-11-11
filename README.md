@@ -12,7 +12,9 @@ Automata is an implementation of the Game Of Life algorithm.
 
 ```sh
 $ git clone git@github.com:azuaraj/automata.git
-$ cd automata/examples
+$ cd automata
+$ bundle install
+$ cd examples
 $ ruby example.rb
 ```
 
